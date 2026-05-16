@@ -1,29 +1,17 @@
-import type { Metadata } from 'next'
-import { Inter, Noto_Sans_Thai } from 'next/font/google'
-import './globals.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-inter',
-})
-
-const notoSansThai = Noto_Sans_Thai({
-  subsets: ['thai'],
-  weight: ['400', '500', '600'],
-  variable: '--font-noto-sans-thai',
-})
+import type { Metadata } from "next"
+import "./globals.css"
 
 export const metadata: Metadata = {
-  title: 'Dashboard',
+  title: "shadcn-starter-homework",
+  description: "Dashboard — shadcn/ui + Tailwind v4 + Figma MCP",
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="th">
-      <body className={`${inter.variable} ${notoSansThai.variable}`}>
-        {children}
-      </body>
+    <html lang="th" suppressHydrationWarning>
+      <body>{children}</body>
     </html>
   )
 }
