@@ -1,5 +1,7 @@
 import NavBar from "@/web/dashboard/components/nav-bar"
 import StatCard from "@/web/dashboard/components/stat-card"
+import AssetAllocation from "@/web/dashboard/components/asset-allocation"
+import ProductInformation from "@/web/dashboard/components/product-information"
 
 const cards = [
   {
@@ -45,12 +47,18 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Stat Cards — 1 col mobile / 2 col tablet / 4 col desktop */}
+          {/* Stat Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6 w-full">
             {cards.map((card) => (
               <StatCard key={card.label} {...card} />
             ))}
           </div>
+
+          {/* Asset Allocation */}
+          <AssetAllocation />
+
+          {/* Product Information */}
+          <ProductInformation />
 
         </div>
       </div>
