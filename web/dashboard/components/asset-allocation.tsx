@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 
-const PIE_CHART = "https://www.figma.com/api/mcp/asset/021982cd-c1a0-4d76-a446-d0caba69b703"
+const PIE_CHART = "https://www.figma.com/api/mcp/asset/0ebb5507-9dc8-48db-ba07-4f6c38e7affa"
 
 const allocations = [
   { label: "หุ้นต่างประเทศ", percent: "24.12%", amount: "฿280,420.59", color: "#3b82f6" },

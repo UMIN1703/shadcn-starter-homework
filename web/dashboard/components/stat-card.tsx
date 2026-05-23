@@ -9,7 +9,7 @@ interface BadgeProps {
 interface StatCardProps {
   label: string
   value: string
-  valueColor?: "default" | "positive" | "negative"
+  valueColor?: "default" | "positive" | "negative" | "warning"
   badge?: BadgeProps
 }
 
@@ -48,6 +48,7 @@ export default function StatCard({
           "text-card-foreground": valueColor === "default",
           "text-green-600": valueColor === "positive",
           "text-destructive": valueColor === "negative",
+          "text-amber-600": valueColor === "warning",
         })}
       >
         {value}

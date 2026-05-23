@@ -1,30 +1,34 @@
 "use client"
 
-import { useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
-const tabs = ["Dashboard", "Rebalance", "Transaction"] as const
-type Tab = (typeof tabs)[number]
+const tabs = [
+  { label: "Dashboard",   href: "/dashboard" },
+  { label: "Rebalance",   href: "/rebalance" },
+  { label: "Transaction", href: "/transaction" },
+] as const
 
 export default function NavBar() {
-  const [active, setActive] = useState<Tab>("Dashboard")
+  const pathname = usePathname()
 
   return (
-    <nav className="bg-background shadow-xs flex items-center justify-center px-6 py-2">
-      <div className="flex items-center gap-1 p-1 rounded-xl">
+    <nav className="bg-background w-full flex flex-col items-center px-6 py-2 drop-shadow-[0px_1px_1.5px_rgba(0,0,0,0.1)]">
+      <div className="flex items-center gap-1 px-1 py-1 rounded-xl">
         {tabs.map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActive(tab)}
+          <Link
+            key={tab.href}
+            href={tab.href}
             className={cn(
               "h-9 px-4 py-2 rounded-lg text-sm font-medium text-foreground transition-colors",
-              active === tab
-                ? "bg-accent shadow-xs"
+              pathname === tab.href
+                ? "bg-accent drop-shadow-[0px_1px_1px_rgba(0,0,0,0.1)]"
                 : "hover:bg-accent/60"
             )}
           >
-            {tab}
-          </button>
+            {tab.label}
+          </Link>
         ))}
       </div>
     </nav>
